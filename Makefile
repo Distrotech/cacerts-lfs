@@ -17,7 +17,7 @@ clean:
 distclean: clean
 
 cacerts: ca-certificates.crt
-	./mkcacerts -f ca-certificates.crt -o cacerts -k keytool -s openssl
+	./mkcacerts -f ca-certificates.crt -o cacerts -k gkeytool -s openssl
 
 install: all
 	install -d $(DESTDIR)$(SSLDIR)/certs/java 
