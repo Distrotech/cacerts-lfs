@@ -26,4 +26,6 @@ install: all
 	rm -f $(DESTDIR)$(SSLDIR)/certs/*.[0-9]*
 	c_rehash $(DESTDIR)$(SSLDIR)/certs
 	cat ca-certificates.crt |grep -vE "(^$|^SHA1 Fingerprint=)" ca-certificates.crt > $(DESTDIR)$(SSLDIR)/certs/ca-certificates.crt
-	install -m 0644 -t $(DESTDIR)$(SSLDIR)/certs/java cacerts
+	if [ -d "./cacerts" ]; then \
+	    install -m 0644 -t $(DESTDIR)$(SSLDIR)/certs/java cacerts; \
+	fi
